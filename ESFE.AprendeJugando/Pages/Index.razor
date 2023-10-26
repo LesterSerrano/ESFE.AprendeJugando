@@ -1,7 +1,26 @@
-﻿@page "/"
+﻿<head>
+    <link href="css/styles.css" rel="stylesheet" />
+</head>
+@page "/"
 
-<h1>Bienvenido a Aprende Jugando!</h1>
 
-<p>Da click para comenzar</p>
+<div class="conteiner">
+    <h1>Bienvenido a Aprende Jugando</h1>
+    <img src="./css/img/libro.svg" alt="">
+</div>
+
+<div class="conteiner-2">
+    <h3>Ingrese su nombre de usuario</h3>
+    <input type="text" placeholder="Ingrese su nombre de usuario">
+    <button>JUGAR!</button>
+</div>
+@code {
+    private string nombreUsuario = "";
+
+    private void NavegarASiguiente()
+    {
+    }
+}
+
 
 <SurveyPrompt Title="How is Blazor working for you?" />

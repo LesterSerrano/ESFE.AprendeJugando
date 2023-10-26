@@ -1,0 +1,161 @@
+﻿@using ESFE.AprendeJugando.Models;
+@using System.Text.Json;
+
+
+<head>
+    <link href="CSS/Juego.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+
+@page "/Juego"
+
+<body>
+    <div class="contenedor">
+
+        <div class="Tsuperior">
+            <!----Este es la parte de arriba-->
+            <img src="./assets/PuertaSalida.svg" id="salida"><!---Aqui va el de la puerta-->
+            <h2>Demuestra <br>tus concimientos</h2>
+            <img src="./assets/autismo.png" id="cerebro"><!---Aqui va ek cerebro-->
+            <div class="timer">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                     class="bi bi-stopwatch-fill" viewBox="0 0 16 16">
+                    <path d="M6.5 0a.5.5 0 0 0 0 1H7v1.07A7.001 7.001 0 0 0 8 16a7 7 0 0 0 5.29-11.584.531.531 0 0 0 .013-.012l.354-.354.353.354a.5.5 0 1 0 .707-.707l-1.414-1.415a.5.5 0 1 0-.707.707l.354.354-.354.354a.717.717 0 0 0-.012.012A6.973 6.973 0 0 0 9 2.071V1h.5a.5.5 0 0 0 0-1h-3zm2 5.6V9a.5.5 0 0 1-.5.5H4.5a.5.5 0 0 1 0-1h3V5.6a.5.5 0 1 1 1 0z" />
+                </svg><!---Tiempo-->
+                <h3>0:30</h3>
+            </div>
+            <!-----Estado de en que numero de preguntas va y cuantas faltan-->
+            <div class="estan">
+                <h3>4/10</h3>
+            </div>
+        </div>
+        <div class="Tinferior">
+            <div class="pregunta respuesta">
+                @{
+                    try
+                    {
+                        <div class="pregunta respuesta">
+                            <!-- Muestra el enunciado de la pregunta actual -->
+                            <p>@preguntas[preguntaActual].PreguntaText</p>
+                        </div>
+
+                        <div class="opciones-respuesta">
+                            @for (int i = 0; i < preguntas[preguntaActual].OpcionesRespuesta.Count; i++)
+                            {
+                                <!-- Genera botones para seleccionar opciones de respuesta -->
+                                <button @onclick="(() => SeleccionarRespuesta(i))">
+                                    <!-- Muestra una letra (A, B, C, etc.) antes del texto de la opción de respuesta -->
+                                    <b>@((char)('A' + i))</b> @preguntas[preguntaActual].OpcionesRespuesta[i]
+                                </button>
+                            }
+                        </div>
+                    }
+                    catch (Exception error )
+                    {
+                        <h1>`${error}`</h1>
+                    }
+                }
+        </div><!------Parte de abajo de las preguntas-->
+        <div class="linea">
+        </div>
+    </div>
+    </div>
+</body>
+@code {
+    List<Pregunta> preguntas; // Lista de preguntas desde el archivo JSON
+    int preguntaActual = 0; // Índice de la pregunta actual
+    int respuestaSeleccionada = -1; // Índice de la respuesta seleccionada por el usuario ( -1 para indicar que no se ha seleccionado ninguna R)
+
+    private TimeSpan tiempoRestante = TimeSpan.FromSeconds(50); // Tiempo inicial del cronómetro
+    private bool cronometroActivo = false; // Indica si el cronómetro está activo
+    private System.Timers.Timer timer; // Temporizador para actualizar el cronómetro
+
+    // Este método se llama cuando se carga la página
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            var preguntasJson = File.ReadAllText("wwwroot/Preguntas/preguntas.json"); // Lee el archivo JSON de preguntas
+            preguntas = JsonSerializer.Deserialize<List<Pregunta>>(preguntasJson); // Deserializa el JSON en una lista de preguntas
+        }
+        catch (Exception error)
+        {
+            // Maneja la excepción, como mostrar un mensaje de error o registrarla.
+        }
+    }
+
+    // Este método se llama cuando el usuario selecciona una respuesta
+    void SeleccionarRespuesta(int opcion)
+    {
+        respuestaSeleccionada = opcion; // Registra la respuesta seleccionada por el usuario
+    }
+
+    // Este método se llama cuando el usuario confirma su respuesta
+    void VerificarRespuesta()
+    {
+        if (preguntaActual < preguntas.Count)
+        {
+            var pregunta = preguntas[preguntaActual]; // Obtiene la pregunta actual
+
+            if (respuestaSeleccionada == pregunta.RespuestaCorrecta)
+            {
+                // La respuesta seleccionada es correcta, puedes realizar acciones aquí
+
+                // Incrementa el índice de la pregunta actual
+                preguntaActual++;
+
+                // Restablece la respuesta seleccionada a -1
+                respuestaSeleccionada = -1;
+            }
+
+            if (preguntaActual < preguntas.Count)
+            {
+                // AQUI AVANZARÁ A LA OTRA PREGUNTA
+                // AQUI MISMO SE VA A CAMBIAR LA INTERFAZ Y ESO
+            }
+            else
+            {
+                // Se han completado todas las preguntas, puedes mostrar un mensaje de finalización
+            }
+        }
+    }
+
+    // Método para iniciar el cronómetro
+    private void IniciarCronometro()
+    {
+        if (!cronometroActivo)
+        {
+            cronometroActivo = true;
+
+            // Inicializa el temporizador
+            timer = new System.Timers.Timer(1000);
+            timer.Elapsed += (sender, e) => ActualizarTiempo();
+            timer.Start();
+        }
+    }
+
+    // Método para detener el cronómetro
+    private void DetenerCronometro()
+    {
+        if (cronometroActivo)
+        {
+            cronometroActivo = false;
+            timer.Stop();
+        }
+    }
+
+    // Método para actualizar el tiempo del cronómetro
+    private void ActualizarTiempo()
+    {
+        if (tiempoRestante.TotalSeconds > 0)
+        {
+            tiempoRestante = tiempoRestante.Subtract(TimeSpan.FromSeconds(1));
+        }
+        else
+        {
+            DetenerCronometro();
+            // Aquí puedes realizar alguna acción cuando se agote el tiempo, como mostrar un mensaje.
+        }
+    }
+}

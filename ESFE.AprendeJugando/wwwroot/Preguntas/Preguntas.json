@@ -1,0 +1,13 @@
+[
+  {
+    "PreguntaTexto": "¿Cuál es la capital de Francia?",
+    "OpcionesRespuesta": [ "Londres", "París", "Berlín" ],
+    "RespuestaCorrecta": 1
+  },
+  {
+    "PreguntaTexto": "¿Cuál es el planeta más grande del sistema solar?",
+    "OpcionesRespuesta": [ "Tierra", "Júpiter", "Marte" ],
+    "RespuestaCorrecta": 1
+  }
+  // Agrega más preguntas aquí
+]

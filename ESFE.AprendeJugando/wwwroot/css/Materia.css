@@ -1,0 +1,219 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Comme&family=Inter:wght@100;500;800&family=Libre+Baskerville:wght@700&family=Raleway:wght@500&display=swap');
+
+@font-face {
+    font-family: Inter-Ligth;
+    src: url(./fonts/Inter-Light.ttf) format('truetype');
+}
+
+:root {
+    --fondo: #701195;
+    --color: #fff;
+    --matematicas: #0F949D;
+    --sociales: #112FCC;
+    --ciencia: #0A9943;
+    --informatica: #862E88;
+    --ingles: #DF5022;
+    --programacion: #4C514B;
+    --bg-circle: #D9D9D9;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    background: var(--fondo);
+    color: var(--color);
+    min-height: 100%;
+    font-family: Inter-Ligth;
+}
+
+.Contenedorc {
+    position: relative;
+    display: grid;
+    gap: 10px;
+    grid-template-areas:
+        "Tsuperior"
+        "linea"
+        "Tinferior";
+}
+
+.Tsuperior {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    border-bottom: 4px solid rgb(254, 254, 254);
+    background: var(--fondo);
+    box-shadow: rgba(17, 128, 254, 0.4) 0px 0px 0px 2px, rgba(0, 119, 255, 0.65) 0px 4px 6px -1px, rgba(33, 30, 203, 0.08) 0px 1px 0px inset;
+    margin-bottom: 30px;
+}
+
+.Tinferior {
+    overflow-y: auto;
+}
+
+.Tsuperior {
+    grid-area: Tsuperior;
+    height: 230px;
+}
+
+/*Seccion del nommbre*/
+.user-profile {
+    width: 100px;
+    position: absolute;
+    top: 35px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    /* border: 1px solid rgb(34, 198, 36); */
+    margin-top: -4%;
+    color: rgb(227, 226, 232);
+    flex-direction: column;
+}
+
+    .user-profile span {
+        margin-left: 44%;
+        text-align: justify;
+    }
+
+.img_circle {
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    background-color: var(--bg-circle);
+    padding: 2px;
+    margin: 2px 0px 5px 10px;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+    .img_circle img {
+        height: 50px;
+        width: 50px;
+        margin-top: 10%;
+    }
+
+.Tinferior {
+    grid-area: Tinferior;
+    width: 100%;
+    height: 100vh;
+}
+
+.materia-card {
+    width: 96%;
+    height: 200px;
+    border-radius: 20px;
+    background-color: var(--matematicas);
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+    text-align: center;
+    border-width: 5px;
+    box-shadow: rgba(0, 0, 0, 0.60) 1.95px 1.95px 2.6px;
+    margin-left: 5px;
+    padding: 5px;
+    margin-bottom: 15px;
+}
+
+
+    .materia-card h3 {
+        text-align: left;
+        margin: 0px 0 5px 28px;
+        font-size: 30px;
+    }
+
+    .materia-card p {
+        padding: 0 35% 0% 5%;
+        margin-top: 2%;
+        margin-left: 4%;
+        text-align: justify;
+    }
+
+.img_icon {
+    width: 70x;
+    height: 70px;
+    background-color: var(--bg-circle);
+    padding: 2px;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: -40%;
+    margin-bottom: 0;
+    margin-left: 75%;
+    margin-right: 10px;
+    border-radius: 37%;
+    border: 2px solid red;
+}
+
+    .img_icon img {
+        height: 50px;
+        width: 50px;
+        margin-top: 10%;
+    }
+
+.materia-card svg {
+    margin-left: 80%;
+}
+
+.iconos {
+    display: flex;
+    align-items: center;
+}
+
+.icono2 svg {
+    margin-left: -2px;
+    height: 70px;
+    width: 80px;
+    margin-top: 25px;
+}
+
+    .icono2 svg:hover {
+        fill: rgb(34, 255, 42);
+    }
+
+.icono1 svg {
+    margin-left: 250px;
+    height: 50px;
+    width: 60px;
+    margin-top: 22px;
+}
+
+.heart svg {
+    margin-left: -300px;
+    margin-top: 5px;
+    height: 30px;
+    width: 80px;
+}
+
+.nombre {
+    font-size: 30px;
+    margin-right: 60px;
+}
+
+.sociales {
+    background-color: var(--sociales);
+}
+
+.ciencia {
+    background-color: var(--ciencia);
+}
+
+.informatica {
+    background-color: var(--informatica);
+}
+
+.ingles {
+    background-color: var(--ingles);
+}
+
+.programacion {
+    background-color: var(--programacion);
+}

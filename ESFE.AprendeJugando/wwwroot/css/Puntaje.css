@@ -1,0 +1,221 @@
+﻿@import url('https://fonts.googleapis.com/css2? family= Black+Ops+One & family= Comme & family= Inter:wght@500;800 & family= Libre+Baskerville:wght@ 700 & familia= Raleway:wght@500 & display=swap');
+
+:root {
+    --fondo: #701195;
+    --color: #fff;
+    --bg-pregunta: #946dbc;
+    --bg-circle: #d7d7d7;
+    --bg-go: #d09b0a;
+    --bg-volver: #10E617;
+    --bg-siguiente: #1B07FF;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    background: var(--fondo);
+    color: var(--color);
+    min-height: 100%;
+}
+
+.contenedor {
+    display: grid;
+    gap: 10px;
+    grid-template-areas:
+        "Tsuperior"
+        "name"
+        "puntaje";
+}
+
+.Tsuperior {
+    grid-area: Tsuperior;
+}
+
+    .Tsuperior h2 {
+        text-align: center;
+        margin-top: 10px;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+
+#salida {
+    width: 50px;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+#meta {
+    height: 150px;
+    width: 150px;
+    margin-left: 30%;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.name {
+    grid-area: name;
+    background-color: var(--bg-pregunta);
+    width: 85%;
+    border-radius: 20px;
+    margin-left: 25px;
+    height: 100px;
+    text-align: center;
+}
+
+    .name h3 {
+        margin-left: 20%;
+        margin-top: -55px;
+        text-transform: uppercase;
+    }
+
+.img_circle {
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    background-color: var(--bg-circle);
+    padding: 2px;
+    margin: 10px 30px 5px 10px;
+}
+
+    .img_circle img {
+        height: 50px;
+        width: 50px;
+        margin-top: 10%;
+    }
+
+.puntaje {
+    grid-area: puntaje;
+    background-color: var(--bg-pregunta);
+    width: 85%;
+    border-radius: 20px;
+    margin-left: 25px;
+    height: 100px;
+    text-align: center;
+}
+
+    .puntaje h3 {
+        /* margin-left: 40%; */
+        margin-top: -55px;
+    }
+
+    .puntaje img {
+        height: 50px;
+        width: 50px;
+        margin-top: 8%;
+        margin-left: -79%;
+    }
+
+    .puntaje h4 {
+        /* margin-top:} ; */
+        text-transform: uppercase;
+        font-size: 70px;
+        font-size: 40px;
+    }
+
+.informacion {
+    width: 90%;
+    height: 350px;
+    margin-left: 3%;
+}
+
+    .informacion .tiempoPreg {
+        margin-top: 2%;
+        height: 100px;
+        padding: 10px;
+        width: 185px;
+        border-radius: 25px;
+        text-align: center;
+        background-color: var(--bg-pregunta);
+    }
+
+    .informacion .rachasseguidas {
+        background-color: var(--bg-pregunta);
+        height: 100px;
+        padding: 10px;
+        width: 185px;
+        ;
+        border-radius: 25px;
+        text-align: center;
+        margin-top: 5px;
+    }
+
+    .informacion .correctas {
+        background: var(--bg-pregunta);
+        height: 100px;
+        width: 185px;
+        padding: 10px;
+        border-radius: 25px;
+        margin-left: 53%;
+        margin-top: -55.6%;
+        text-align: center;
+    }
+
+    .informacion .incorrectas {
+        background: var(--bg-pregunta);
+        height: 100px;
+        width: 185px;
+        padding: 10px;
+        border-radius: 25px;
+        margin-left: 53%;
+        margin-top: 4px;
+        text-align: center;
+    }
+/*-------------BOTONES----------------*/
+.botones {
+    width: 80%;
+    height: 50px;
+    margin-left: 40px;
+    display: flex;
+    gap: 10px;
+    margin-top: -50px;
+}
+
+    .botones > * {
+        border-radius: 15px;
+        color: var(--color);
+        text-transform: uppercase;
+        padding: 10px;
+        
+    }
+
+    .botones #volver {
+        flex: 1;
+        background-color: var(--bg-volver);
+        height: 50px;
+    }
+
+    .botones #go {
+        flex: 1;
+        background-color: var(--bg-go);
+        height: 50px;
+    }
+
+    .botones #siguiente {
+        flex: 1;
+        background-color: var(--bg-siguiente);
+        height: 50px;
+    }
+
+.tiempoPreg svg{
+    width:40px;
+    height:40px;
+}
+.rachasseguidas svg {
+    width: 40px;
+    height: 40px;
+}
+.correctas svg {
+    width: 40px;
+    height: 40px;
+}
+.incorrectas svg {
+    width: 40px;
+    height: 40px;
+}

@@ -1,0 +1,125 @@
+﻿@font-face {
+    font-family: bungeeInline;
+    src: url('fonts/BungeeInline-Regular.ttf') format('truetype');
+    font-family: bowlyOneSc;
+    src: url('fonts/BowlbyOneSC-Regular.ttf') format('truetype');
+}
+
+@media (max-width: 768px) {
+    main {
+        margin-top: 70px;
+    }
+}
+
+@media (min-width: 769px) {
+}
+
+body {
+    background-color: #5500B0;
+}
+
+
+nav {
+    width: 100%;
+    text-align: left;
+}
+
+h1 {
+    text-align: center;
+    font-size: 24px;
+    font-family: 'bungee Inline';
+    color: #ffffff;
+}
+
+.exit-button {
+    left: 25px;
+    font-size: 30px;
+    color: #fff;
+    text-decoration: none;
+    float: left;
+}
+
+.user-profile {
+    top: 10px;
+    right: 10px;
+    text-align: end;
+    color: #ffffff;
+}
+
+
+.user-profile {
+    top: 10px;
+    right: 10px;
+    text-align: end;
+    color: #ffffff;
+}
+
+
+
+.user-profile img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    margin-right: 9px;
+}
+
+p {
+    padding: 10px;
+}
+
+
+.usuario-background {
+    background-color: #f8edeb;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    margin-top: -10px;
+    margin-right: 25px;
+    position: absolute;
+    right: 0;
+    z-index: -1;
+}
+
+
+hr {
+    width: 100%;
+    border: none;
+    border-top: 3px solid #ffffff;
+    margin: auto;
+}
+
+
+.materias {
+    text-align: center;
+}
+
+.materia {
+    font-family: 'bowlyOneSc';
+    color: #ffffff;
+    border: 2px solid #000;
+    border-radius: 10px;
+    background-color: rgba(49, 51, 49, 0.5);
+    width: 310px;
+    height: 70px;
+    margin: 10px auto;
+    line-height: 50px;
+}
+
+.materias button {
+    background: transparent;
+    border: none;
+    float: right;
+    margin-right: 10px;
+    margin-top: 15px;
+}
+
+.materias button i {
+    color: #fff;
+    font-size: 30px;
+}
+
+footer {
+    color: #ffffff;
+    text-align: center;
+    margin-top: 200px;
+}
