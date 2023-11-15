@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components.WebView.Maui;
 using ESFE.AprendeJugando.Data;
+using ESFE.AprendeJugando.Services;
 
 namespace ESFE.AprendeJugando;
 
@@ -16,12 +17,14 @@ public static class MauiProgram
 			});
 
 		builder.Services.AddMauiBlazorWebView();
-		#if DEBUG
-		builder.Services.AddBlazorWebViewDeveloperTools();
+        builder.Services.AddSingleton<IPreguntaService, PreguntasServices>();
+#if DEBUG
+        builder.Services.AddBlazorWebViewDeveloperTools();
 #endif
 		
 		builder.Services.AddSingleton<WeatherForecastService>();
+		
 
-		return builder.Build();
+        return builder.Build();
 	}
 }

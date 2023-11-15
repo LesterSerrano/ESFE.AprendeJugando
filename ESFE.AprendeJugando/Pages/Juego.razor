@@ -1,6 +1,7 @@
-﻿@using ESFE.AprendeJugando.Models;
+﻿@using ESFE.AprendeJugando.Models
 @using System.Text.Json;
-
+@using System.Timers;
+@using ESFE.AprendeJugando.Services;
 
 <head>
     <link href="CSS/Juego.css" rel="stylesheet" />
@@ -37,7 +38,7 @@
                     {
                         <div class="pregunta respuesta">
                             <!-- Muestra el enunciado de la pregunta actual -->
-                            <p>@preguntas[preguntaActual].PreguntaText</p>
+                            <p>@PreguntasService[preguntaActual].PreguntaText</p>
                         </div>
 
                         <div class="opciones-respuesta">
@@ -63,6 +64,9 @@
     </div>
 </body>
 @code {
+    [Inject]
+    public IPreguntaService preguntasService { get; set; }
+
     List<Pregunta> preguntas; // Lista de preguntas desde el archivo JSON
     int preguntaActual = 0; // Índice de la pregunta actual
     int respuestaSeleccionada = -1; // Índice de la respuesta seleccionada por el usuario ( -1 para indicar que no se ha seleccionado ninguna R)
@@ -88,6 +92,7 @@
     // Este método se llama cuando el usuario selecciona una respuesta
     void SeleccionarRespuesta(int opcion)
     {
+        preguntas = IPreguntaService. ;
         respuestaSeleccionada = opcion; // Registra la respuesta seleccionada por el usuario
     }
 
@@ -131,7 +136,7 @@
             // Inicializa el temporizador
             timer = new System.Timers.Timer(1000);
             timer.Elapsed += (sender, e) => ActualizarTiempo();
-            timer.Start();
+            timer.Start(); //de aqui inia el cronometro pa"ya
         }
     }
 
